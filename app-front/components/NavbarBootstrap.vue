@@ -4,6 +4,8 @@
             <b-navbar-nav>
                 <b-nav-item href="/Home">Home</b-nav-item>
                 <b-nav-item href="/CadastrarEsportes">Cadastrar Esportes</b-nav-item>
+                <b-nav-item href="/RegistrarLocal">Registrar Local</b-nav-item>
+                
                 <b-nav-item href="/Login">Login</b-nav-item>
                 <b-nav-item href="/Register">Register</b-nav-item>
                 <!-- Navbar dropdowns 
