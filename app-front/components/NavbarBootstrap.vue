@@ -7,7 +7,7 @@
                 <b-nav-item href="/RegistrarLocal">Registrar Local</b-nav-item>
                 
                 <b-nav-item href="/Login">Login</b-nav-item>
-                <b-nav-item href="/Register">Register</b-nav-item>
+                <b-nav-item href="/Registrar">Registrar-se</b-nav-item>
                 <!-- Navbar dropdowns 
                 <b-nav-item-dropdown text="Lang" right>
                 <b-dropdown-item href="#">EN</b-dropdown-item>
