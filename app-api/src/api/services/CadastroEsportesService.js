@@ -2,11 +2,6 @@
 const CadastroEsportesRepository = require("../repositories/CadastroEsportesRepository");
 
 module.exports = {
-    /*getAllItemPatrimonio: async function (){
-        const data = await CadastroEsportesRepository.all();
-        return data;
-    },*/
-
     getCadastroEsportesPorNome: async function (CadastroEsportesNome){
         const data = await CadastroEsportesRepository.find(CadastroEsportesNome)
         return data;
