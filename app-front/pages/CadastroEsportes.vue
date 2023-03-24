@@ -1,7 +1,7 @@
 <template>
     <div id="default-body">
         <b-card bg-variant="light">
-            <b-form @submit="doCadastroEsportes">
+            <b-form @submit="NovoEsportes">
                 <b-form-group
                 label-cols-lg="3"
                 label="Cadastro de Esporte"
@@ -51,11 +51,21 @@
             return { items, totalRows }
         },
         */
-       //Exemplo do professor
+        name: "CadastroEsportes",
+    data: function(){
+        return{
+            NovoEsportes:{
+                nome:"volei",
+                descricao:"Composto por 6 jogadores em cada time..."
+            }
+        };
+    },
+       //Exemplo do professor // Não entendi essa parte :(
         async asyncData({ $axios }) {
             let items, totalRows;
             try {
-            const response = await $axios.$get('patrimonio');
+                // não era para ser uma url ?
+            const response = await $axios.$get('esporte');
             items = response;
             totalRows = items.length;
             } catch (ex) {
@@ -63,7 +73,28 @@
             }
             return { items, totalRows }
         },
+        methods: {
+            NovoEsporte: function (event) {
+                event.preventDefault();
+                console.log(JSON.stringify(this.novoEsporte));
+                this.$axios
+                    .$post("esporte", this.novoEsporte)
+                    .then((response) => {
+                        console.log('Resposta do servidor obtida');
+                        this.$bvModal.hide('modal-novo-esporte');
+                        this.show = false;
+                        this.updateItemList();
+                    })
+                    .catch((error) => {
+                        console.error('Não foi possível criar um novo esporte');
+                        console.log(error);
+                        this.$bvModal.hide('modal-novo-esporte');
+                        this.show = false;
+                    });
+            },
+        }
     }
+
 </script>
 
 <style>

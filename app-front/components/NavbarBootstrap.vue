@@ -3,8 +3,8 @@
         <b-navbar type="dark" variant="dark" fixed="top">
             <b-navbar-nav>
                 <b-nav-item href="/Home">Home</b-nav-item>
-                <b-nav-item href="/CadastrarEsportes">Cadastrar Esportes</b-nav-item>
-                <b-nav-item href="/RegistrarLocal">Registrar Local</b-nav-item>
+                <b-nav-item href="/CadastroEsportes">Cadastrar Esportes</b-nav-item>
+                <b-nav-item href="/CadastroLocais">Registrar Local</b-nav-item>
                 
                 <b-nav-item href="/Login">Login</b-nav-item>
                 <b-nav-item href="/Registrar">Registrar-se</b-nav-item>
