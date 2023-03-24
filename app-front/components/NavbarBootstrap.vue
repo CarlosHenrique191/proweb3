@@ -2,6 +2,7 @@
     <div>
         <b-navbar type="dark" variant="dark" fixed="top">
             <b-navbar-nav>
+                <img src="../static/Logo.png" />
                 <b-nav-item href="/Home">Home</b-nav-item>
                 <b-nav-item href="/CadastroEsportes">Cadastrar Esportes</b-nav-item>
                 <b-nav-item href="/CadastroLocais">Registrar Local</b-nav-item>
@@ -13,11 +14,16 @@
                 <b-dropdown-item href="#">EN</b-dropdown-item>
                 </b-nav-item-dropdown>
                 -->
+                
             </b-navbar-nav>
         </b-navbar>
     </div>
 </template>
 
 <style>
+img {
 
+    width: 110px;
+    height: 40px;
+}
 </style>
