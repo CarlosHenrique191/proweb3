@@ -84,9 +84,9 @@ export default {
 
 <style>
 #default-body {
-    max-width: 800px;
+    max-width: 550px;
     margin: auto;
-    margin-top: 200px;
+    margin-top: 100px;
 }
 </style>
 

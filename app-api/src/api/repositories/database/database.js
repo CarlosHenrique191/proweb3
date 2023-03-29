@@ -12,6 +12,7 @@ class Banco {
         }
     }
 
+    //não entendi isso
     AcharPorNome(nome) {
           return this.esporte.filter(esporte => esporte.nome === nome)[0];
     }
