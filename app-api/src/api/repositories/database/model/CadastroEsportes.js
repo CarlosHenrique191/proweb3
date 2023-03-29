@@ -1,8 +1,8 @@
 class CadastroEsportes {
     constructor(esporteDados) {
         console.log(esporteDados);
-        this.esporte = esporteDados.nome ;
-        this.esporte = esporteDados.descricao;
+        this.nome = esporteDados.nome ;
+        this.descricao = esporteDados.descricao;
     }
 }
 

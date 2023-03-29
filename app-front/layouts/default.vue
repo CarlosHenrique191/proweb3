@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <NavbarBootstrap />
+            <Navbaratempt />
         </div>
         <div id="default-body">
             <nuxt />
@@ -11,6 +11,6 @@
 
 <style>
 #default-body {
-    margin-top: 50px;
+    margin-top: 60px;
 }
 </style>

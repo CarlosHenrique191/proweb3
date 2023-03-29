@@ -44,7 +44,7 @@ export default {
   build: {
   },
   axios: {
-    baseURL: 'http://localhost:3000/',
+    baseURL: 'http://localhost:3333/api/',
   },
   /* Para alterar a porta
   server: {

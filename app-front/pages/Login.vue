@@ -90,6 +90,7 @@ export default {
   
 .left-login {
     background-color: #F2F2F2;
+    max-width: 350px;
 }
   
 .title-login {
@@ -97,7 +98,7 @@ export default {
 }
   
 img {
-    width: 600px;
+    width: auto;
     height: auto;
 }
 </style>

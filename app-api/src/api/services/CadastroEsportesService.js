@@ -8,7 +8,10 @@ module.exports = {
     },
 
     postNewCadastroEsportes: async function (esporte){
-        const data = await CadastroEsportesRepository.create(esporte);
+        let model = new CadastroEsportesRepository();
+        // const data = await CadastroEsportesRepository.create(esporte);
+        const data = await model.create(esporte);
+        //colocar no banco
         if(data) return {status: "esporte cadastrado com sucesso."}
         else return {status: "Não foi possível cadastrar o esporte"}
     },
