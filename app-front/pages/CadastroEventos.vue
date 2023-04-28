@@ -1,22 +1,126 @@
 <template>
-    <div id="default-body">
-        <b-card bg-variant="light" >
-            <b-form @submit="NovoEvento">
-                <b-form-group label-cols-lg="3" label="Cadastro de Evento" label-size="lg"
-                    label-class="font-weight-bold pt-0" class="mb-0">
-                    <b-form-group label="Nome:" label-for="nome-input" label-cols-sm="3" label-align-sm="right">
-                        <b-form-input v-model="novoEvento.nome" id="nome-input"></b-form-input>
-                    </b-form-group>
-                    <b-form-group label="Descrição:" label-for="desc-input" label-cols-sm="3" label-align-sm="right"
-                        description="Descreva sucintamente o evento que deseja adicionar.">
-                        <b-form-input v-model="novoEvento.descricao" id="desc-input"></b-form-input>
-                    </b-form-group>
-                    <b-form-select v-model="novoEvento.local" :options="exemploLocal" size="sm" class="mt-3"></b-form-select>
-                    <div class="mt-3">Local selecionado: <strong>{{ novoEvento.local }}</strong></div>
-                </b-form-group>
-                <b-button type="submit">Cadastrar</b-button>
-            </b-form>
-        </b-card>
+    <div>
+        <h1> Cadastro de Evento Esportivo </h1>
+        <form action="Script_do_Formulario.php" method="post" @submit="NovoEvento">
+            <!-- ESPORTE -->
+            <fieldset>
+                <legend>Selecione o esporte</legend>
+                <table cellspacing="10">
+                    <tr>
+                        <td>
+                            <label for="esporte">Esporte:</label>
+                        </td>
+                        <td align="left">
+                            <select name="esporte">
+                                <option value= 1 >Futebol</option>
+                                <option value= 2 >Basquete</option>
+                                <option value= 3 >Volei</option>
+                                <option value= 4 >Handebol</option>
+                                <option value= 5 >Futsal</option>
+                                <option value= 5 >ESports</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <br />
+            <!-- DADOS DOS LOCAIS -->
+            <fieldset>
+                <legend>Dados do Evento</legend>
+                <table cellspacing="10">
+                    <tr>
+                        <td>
+                            <label for="nome">Time 1: </label>
+                        </td>
+                        <td align="left">
+                            <select name="Time1">
+                                <option value= 1 >Time A</option>
+                                <option value= 2 >Time B</option>
+                                <option value= 3 >Time C</option>
+                                <option value= 4 >Time D</option>
+                                <option value= 5 >Time E</option>
+                                <option value= 6 >Time F</option>
+                            </select>
+                        </td>
+                        <td>
+                            <label for="nome">Time 2: </label>
+                        </td>
+                        <td align="left">
+                            <select name="Time2">
+                                <option value= 1 >Time A</option>
+                                <option value= 2 >Time B</option>
+                                <option value= 3 >Time C</option>
+                                <option value= 4 >Time D</option>
+                                <option value= 5 >Time E</option>
+                                <option value= 6 >Time F</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="data">Data:</label>
+                        </td>
+                        <td align="left">
+                            <input type="date" name="data">
+                        </td>
+                        <td>
+                            <label for="hora">Hora:</label>
+                        </td>
+                        <td align="left">
+                            <input type="text" name="hora" size="4">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="local">Local: </label>
+                        </td>
+                        <td align="left">
+                            <select name="Local">
+                                <option value= 1 >Local A</option>
+                                <option value= 2 >Local B</option>
+                                <option value= 3 >Local C</option>
+                                <option value= 4 >Local D</option>
+                                <option value= 5 >Local E</option>
+                                <option value= 6 >Local F</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="arbitragem">Arbitragem: </label>
+                        </td>
+                        <td align="left">
+                            <select name="Arbitragem">
+                                <option value= 1 >Arbitragem A</option>
+                                <option value= 2 >Arbitragem B</option>
+                                <option value= 3 >Arbitragem C</option>
+                                <option value= 4 >Arbitragem D</option>
+                                <option value= 5 >Arbitragem E</option>
+                                <option value= 6 >Arbitragem F</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="imprensa">Imprensa: </label>
+                        </td>
+                        <td align="left">
+                            <select name="Imprensa">
+                                <option value= 1 >Imprensa A</option>
+                                <option value= 2 >Imprensa B</option>
+                                <option value= 3 >Imprensa C</option>
+                                <option value= 4 >Imprensa D</option>
+                                <option value= 5 >Imprensa E</option>
+                                <option value= 6 >Imprensa F</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <br />
+            <input type="submit" value="Cadastrar">
+            <input type="reset" value="Limpar">
+        </form>
     </div>
 </template>
 
@@ -27,7 +131,7 @@ export default {
         return {
             novoEvento: {
                 nome: "campeonato de verao",
-                descricao: "...",
+                imprinsa: "...",
                 local: null
             },
             exemploLocal: [{text: 'Selecione um local', value: null}, 'Praia','São lourenço','Bragantino','Lago']
@@ -54,14 +158,4 @@ export default {
         },
     }
 }
-
 </script>
-
-<style>
-#default-body {
-    max-width: 650px;
-    margin: auto;
-    margin-top: 100px;
-}
-</style>
-

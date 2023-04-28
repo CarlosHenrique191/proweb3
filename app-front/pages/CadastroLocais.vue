@@ -78,21 +78,21 @@
                 </table>
             </fieldset>
             <br />
-            <input type="submit">
-            <!--<input type="reset" value="Limpar">-->
+            <input type="submit" value="Cadastrar">
+            <input type="reset" value="Limpar">
         </form>
     </div>
 </template>
 
 <script>
 export default {
-    name: "CadastroEvento",
+    name: "CadastroLocal",
     data: function () {
         return {
             novoLocal: {
                 nome: "nome exemplo",
                 rua: "rua exemplo",
-                numero: "numero exemplo",
+                numero: "0000",
                 bairro: "bairro exemplo",
                 cidade: "cidade exemplo",
                 cep: "00000-000"
