@@ -27,7 +27,8 @@ export default {
         return {
             novoEvento: {
                 nome: "campeonato de verao",
-                descricao: "..."
+                descricao: "...",
+                local: null
             },
             exemploLocal: [{text: 'Selecione um local', value: null}, 'Praia','São lourenço','Bragantino','Lago']
         };
