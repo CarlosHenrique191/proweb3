@@ -1,11 +1,13 @@
 <template>
-    <div>
+    <div id="divNavbar">
         <b-navbar type="dark" variant="dark" fixed="top" >
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav >
                     <b-nav-item href="/Home"><img src="../static/Logo.png" /></b-nav-item>
                     <b-nav-item href="/CadastroEsportes">Cadastrar Esportes</b-nav-item>
                     <b-nav-item href="/CadastroLocais">Registrar Local</b-nav-item>
+                    <b-nav-item href="/CadastroEventos">Registrar Evento esportivo</b-nav-item>
+                    <b-nav-item href="/Calendario">Registrar Evento esportivo</b-nav-item>
                     
                     
                     <!-- Navbar dropdowns 
@@ -26,4 +28,7 @@
 </template>
 
 <style>
+#divNavbar {
+    font-size: 15pt;
+}
 </style>

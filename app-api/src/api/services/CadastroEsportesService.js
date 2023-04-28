@@ -17,7 +17,7 @@ module.exports = {
     },
     
     deleteCadastroEsportesPorNome: async function(CadastroEsportesNome) {
-        const status = await CadastroEsportesNomeRepository.remove(CadastroEsportesNome);
+        const status = await CadastroEsportesRepository.remove(CadastroEsportesNome);
         if(status) return {status: "Esporte removido com sucesso."}
         else return {status: "Esporte não encontrado."}
     }

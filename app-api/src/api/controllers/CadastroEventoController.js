@@ -1,9 +1,9 @@
-const CadastroEsportesService = require("../services/CadastroEsportesService");
+const CadastroEventoService = require("../services/CadastroEventoService");
 
 module.exports = {
     // Adicionar Esporte
     post: function (req, res) {
-        CadastroEsportesService.postNewCadastroEsportes(
+        CadastroEventoService.postNewCadastroEvento(
             req.body
         ).then((status) => {
             res.statusCode = 201; // Status HTTP para created;
@@ -18,24 +18,24 @@ module.exports = {
     },
     // Usado para listar
     get: function (req, res) {
-        const CadastroEsportesNome = req.params.CadastroEsportes_nome;
-        CadastroEsportesService.getCadastroEsportesPorNome(
+        const CadastroEventoNome = req.params.CadastroEvento_nome;
+        CadastroEventoService.getCadastroEventoPorNome(
             // req.params acessa os parâmetros passados na path definidos como :nomeparam
-            CadastroEsportesNome).then((esporte) => {
-                if(esporte){
+            CadastroEventoNome).then((evento) => {
+                if(evento){
                     res.statusCode = 200; // Status HTTP para OK;
                     res.set("Content-Type", "application/json");
-                    res.send(JSON.stringify(esporte));                    
+                    res.send(JSON.stringify(evento));                    
                 } else{
                     res.statusCode = 404; // Status HTTP para No Found;
                     res.set("Content-Type", "application/json");
-                    res.send({status: `Não foi possível encontrar esse esporte ${CadastroEsportesNome}.`});
+                    res.send({status: `Não foi possível encontrar esse evento ${CadastroEventoNome}.`});
                 }                
             });
     },
     //Remove esporte
     delete: function (req, res) {
-        CadastroEsportesService.deleteCadastroEsportesPorNome(
+        CadastroEventoService.deleteCadastroEventoPorNome(
             // req.params acessa os parâmetros passados na path definidos como :nomeparam no router
             req.params.CadastroEsportesNome).then((status) => {
                 res.statusCode = 200; // Status HTTP para Operação bem sucedida "No content";

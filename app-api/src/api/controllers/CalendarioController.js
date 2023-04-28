@@ -1,9 +1,9 @@
-const CadastroEsportesService = require("../services/CadastroEsportesService");
+const CalendarioService = require("../services/CalendarioService");
 
 module.exports = {
     // Adicionar Esporte
     post: function (req, res) {
-        CadastroEsportesService.postNewCadastroEsportes(
+        CalendarioService.postNewCalendario(
             req.body
         ).then((status) => {
             res.statusCode = 201; // Status HTTP para created;
@@ -18,26 +18,26 @@ module.exports = {
     },
     // Usado para listar
     get: function (req, res) {
-        const CadastroEsportesNome = req.params.CadastroEsportes_nome;
-        CadastroEsportesService.getCadastroEsportesPorNome(
+        const CalendarioData = req.params.Calendario_data;
+        CalendarioService.getCalendarioPorData(
             // req.params acessa os parâmetros passados na path definidos como :nomeparam
-            CadastroEsportesNome).then((esporte) => {
-                if(esporte){
+            CalendarioData).then((calendario) => {
+                if(calendario){
                     res.statusCode = 200; // Status HTTP para OK;
                     res.set("Content-Type", "application/json");
-                    res.send(JSON.stringify(esporte));                    
+                    res.send(JSON.stringify(calendario));                    
                 } else{
                     res.statusCode = 404; // Status HTTP para No Found;
                     res.set("Content-Type", "application/json");
-                    res.send({status: `Não foi possível encontrar esse esporte ${CadastroEsportesNome}.`});
+                    res.send({status: `Não foi possível encontrar essa data ${CalendarioData}.`});
                 }                
             });
     },
     //Remove esporte
     delete: function (req, res) {
-        CadastroEsportesService.deleteCadastroEsportesPorNome(
+        CalendarioService.deleteCalendarioPorData(
             // req.params acessa os parâmetros passados na path definidos como :nomeparam no router
-            req.params.CadastroEsportesNome).then((status) => {
+            req.params.CalendarioData).then((status) => {
                 res.statusCode = 200; // Status HTTP para Operação bem sucedida "No content";
                 res.set("Content-Type", "application/json");
                 res.send(JSON.stringify(status));
