@@ -2,18 +2,16 @@
     <div id="default-body">
         <b-card bg-variant="light" >
             <b-form @submit="NovoEvento">
-                <b-form-group label-cols-lg="3" label="Cadastro de Evento" label-size="lg"
-                    label-class="font-weight-bold pt-0" class="mb-0">
-                    <b-form-group label="Nome:" label-for="nome-input" label-cols-sm="3" label-align-sm="right">
+                <h1><em>Cadastro de Eventos</em></h1><br>
+                    <b-form-group label="Nome:" label-for="nome-input" label-cols-sm="2" label-align-sm="left">
                         <b-form-input v-model="novoEvento.nome" id="nome-input"></b-form-input>
                     </b-form-group>
-                    <b-form-group label="Descrição:" label-for="desc-input" label-cols-sm="3" label-align-sm="right"
+                    <b-form-group label="Descrição:" label-for="desc-input" label-cols-sm="2" label-align-sm="left"
                         description="Descreva sucintamente o evento que deseja adicionar.">
                         <b-form-input v-model="novoEvento.descricao" id="desc-input"></b-form-input>
                     </b-form-group>
                     <b-form-select v-model="novoEvento.local" :options="exemploLocal" size="sm" class="mt-3"></b-form-select>
                     <div class="mt-3">Local selecionado: <strong>{{ novoEvento.local }}</strong></div>
-                </b-form-group>
                 <b-button type="submit">Cadastrar</b-button>
             </b-form>
         </b-card>
