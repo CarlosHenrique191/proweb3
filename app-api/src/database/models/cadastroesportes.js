@@ -14,8 +14,13 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   CadastroEsportes.init({
-    nome: DataTypes.STRING,
-    descricao: DataTypes.STRING
+    nome: {
+      allowNull: false,
+      autoIncrement: false,
+      primaryKey: true,
+      type: DataTypes.STRING
+    },
+    descricao: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'CadastroEsportes',

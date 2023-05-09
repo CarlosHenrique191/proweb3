@@ -4,11 +4,11 @@
             <b-form @submit="NovoEsporte">
                 <h1><em>Cadastro de Esporte</em></h1><br>
                     <b-form-group label="Nome:" label-for="nome-input" label-cols-sm="2" label-align-sm="left">
-                        <b-form-input v-model="novoEsportes.nome" id="nome-input"></b-form-input>
+                        <b-form-input v-model="novoEsporte.nome" id="nome-input"></b-form-input>
                     </b-form-group>
                     <b-form-group label="Descrição:" label-for="desc-input" label-cols-sm="2" label-align-sm="left"
                         description="Descreva sucintamente o esporte que deseja adicionar.">
-                        <b-form-input v-model="novoEsportes.descricao" id="desc-input"></b-form-input>
+                        <b-form-input v-model="novoEsporte.descricao" id="desc-input"></b-form-input>
                     </b-form-group>
                 <b-button type="submit">Cadastrar Esporte</b-button>
             </b-form>
@@ -21,41 +21,15 @@
 //Login do Video 
 //Nao funcionou... eu acho..
 export default {
-    /*
-    async asyncData({ $axios }) {
-        let items, totalRows;
-        try {
-        const response = await $axios.$get('patrimonio');
-        items = response;
-        totalRows = items.length;
-        } catch (ex) {
-        console.log(ex);
-        }
-        return { items, totalRows }
-    },
-    */
     name: "CadastroEsportes",
     data: function () {
         return {
-            novoEsportes: {
-                nome: "volei",
-                descricao: "Composto por 6 jogadores em cada time..."
+            novoEsporte: {
+                nome: "futebol",
+                descricao: "Composto por x jogadores em cada time..."
             }
         };
     },
-    //Exemplo do professor // Não entendi essa parte :(
-    // async asyncData({ $axios }) {
-    //     let items, totalRows;
-    //     try {
-    //         // não era para ser uma url ?
-    //         const response = await $axios.$get('esporte');
-    //         items = response;
-    //         totalRows = items.length;
-    //     } catch (ex) {
-            // console.log(ex);
-    //     }
-    //     return { items, totalRows }
-    // },
     methods: {
         NovoEsporte: function (event) {
             event.preventDefault();
@@ -66,7 +40,7 @@ export default {
                     console.log('Resposta do servidor obtida');
                     this.$bvModal.hide('modal-novo-esporte');
                     this.show = false;
-                    this.updateItemList();
+                    //this.updateItemList();
                 })
                 .catch((error) => {
                     console.error('Não foi possível criar um novo esporte');
@@ -74,10 +48,36 @@ export default {
                     this.$bvModal.hide('modal-novo-esporte');
                     this.show = false;
                 });
-        },
+            },
+        }
     }
+    
+/*
+async asyncData({ $axios }) {
+    let items, totalRows;
+    try {
+    const response = await $axios.$get('patrimonio');
+    items = response;
+    totalRows = items.length;
+} catch (ex) {
+    console.log(ex);
 }
-
+return { items, totalRows }
+},
+*/
+//Exemplo do professor // Não entendi essa parte :(
+    // async asyncData({ $axios }) {
+//     let items, totalRows;
+//     try {
+    //         // não era para ser uma url ?
+//         const response = await $axios.$get('esporte');
+//         items = response;
+//         totalRows = items.length;
+//     } catch (ex) {
+    // console.log(ex);
+    //     }
+    //     return { items, totalRows }
+    // },
 </script>
 
 <style>

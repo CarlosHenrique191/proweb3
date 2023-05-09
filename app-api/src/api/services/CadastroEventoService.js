@@ -1,5 +1,5 @@
 
-const CadastroEventoRepository = require("../repositories/CadastroEventoRepository");
+//const CadastroEventoRepository = require("../repositories/CadastroEventoRepository");
 
 module.exports = {
     getCadastroEventoPorNome: async function (CadastroEventoNome){
