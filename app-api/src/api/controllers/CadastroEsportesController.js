@@ -1,6 +1,19 @@
 const CadastroEsportesService = require("../services/CadastroEsportesService");
 
 module.exports = {
+    //Pegar todas as infomaçoes
+    listAll: function (req, res) {
+        //Blocking operation (Não fazer)
+        //return ItemPatrimonioRepository.all()
+        // console.log(ItemPatrimonioRepository.all());
+        res.statusCode = 200; // Status HTTP para OK;
+        ItemPatrimonioService.getAllCadastroEsportes().then(
+            esportes => {
+                res.set("Content-Type", "application/json");
+                res.send(JSON.stringify(esportes));
+            }            
+        )
+    },
     // Adicionar Esporte
     post: function (req, res) {
         CadastroEsportesService.postNewCadastroEsportes(

@@ -147,10 +147,10 @@ export default {
                     console.log('Resposta do servidor obtida');
                     this.$bvModal.hide('modal-novo-evento');
                     this.show = false;
-                    this.updateItemList();
+                    //this.updateItemList();
                 })
                 .catch((error) => {
-                    console.error('Não foi possível criar um novo esporte');
+                    console.error('Não foi possível criar um novo evento');
                     console.log(error);
                     this.$bvModal.hide('modal-novo-esporte');
                     this.show = false;

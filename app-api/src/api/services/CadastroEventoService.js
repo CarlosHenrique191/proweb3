@@ -1,23 +1,21 @@
 
-//const CadastroEventoRepository = require("../repositories/CadastroEventoRepository");
+const {CadastroEvento} = require("../../database/models");
 
 module.exports = {
     getCadastroEventoPorNome: async function (CadastroEventoNome){
-        const data = await CadastroEventoRepository.find(CadastroEventoNome)
+        const data = await CadastroEvento.findOne({ where: { nome: CadastroEventoNome }})
         return data;
     },
 
     postNewCadastroEvento: async function (evento){
-        let model = new CadastroEventoRepository();
-        // const data = await CadastroEsportesRepository.create(evento);
-        const data = await model.create(evento);
+        const data = await CadastroEvento.create(evento);
         //colocar no banco
         if(data) return {status: "esporte cadastrado com sucesso."}
         else return {status: "Não foi possível cadastrar o esporte"}
     },
     
     deleteCadastroEventoPorNome: async function(CadastroEventoNome) {
-        const status = await CadastroEventoRepository.remove(CadastroEventoNome);
+        const status = await CadastroEvento.destroy(CadastroEventoNome);
         if(status) return {status: "Evento removido com sucesso."}
         else return {status: "Evento não encontrado."}
     }

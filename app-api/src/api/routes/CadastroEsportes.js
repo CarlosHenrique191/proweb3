@@ -4,6 +4,7 @@ const CadastroEsportesController = require("../controllers/CadastroEsportesContr
 
 const routes = Router();
 
+routes.get("/CadastroEsportes", CadastroEsportesController.listAll);
 routes.get("/CadastroEsportes/:CadastroEsportes_nome", CadastroEsportesController.get);
 routes.post("/CadastroEsportes", CadastroEsportesController.post);
 routes.delete("/CadastroEsportes/:CadastroEsportes_nome", CadastroEsportesController.delete);

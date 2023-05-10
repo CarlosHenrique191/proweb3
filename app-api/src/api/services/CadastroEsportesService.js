@@ -2,13 +2,17 @@
 const {CadastroEsportes} = require("../../database/models")
 
 module.exports = {
+    getAllCadastroEsportes: async function (){
+        const data = await CadastroEsportes.findAll();
+        return data;
+    },
+
     getCadastroEsportesPorNome: async function (CadastroEsportesNome){
         const data = await CadastroEsportes.findOne({ where: { nome: CadastroEsportesNome }})
         return data;
     },
 
     postNewCadastroEsportes: async function (esporte){
-        // const data = await CadastroEsportesRepository.create(esporte);
         const data = await CadastroEsportes.create(esporte);
         //colocar no banco
         if(data) return {status: "esporte cadastrado com sucesso."}
