@@ -5,7 +5,7 @@
                 <h1><em>Cadastro de Eventos</em></h1><br>
                 <h4><em>Selecione um esporte</em></h4>
                 <b-form-group label="Esporte:" label-for="esporte-input" label-cols-sm="2" label-align-sm="left">
-                    <b-form-select v-model="novoEvento.esporte" :options="esporte" size="sm" class="mt-3"></b-form-select>
+                    <b-form-select v-model="novoEvento.esporte" :options="esportesNome" size="sm" class="mt-3"></b-form-select>
                 </b-form-group>
                 <br><h4><em>Dados do evento</em></h4>
                 <b-form-group label="Time A:" label-for="timeA-input" label-cols-sm="2" label-align-sm="left">
@@ -39,17 +39,21 @@
 export default {
 
     async asyncData({ $axios }) {
-    let esportes, totalRows;
+    let esportes, totalRows, esportesNome = [];
     try {
       const response = await $axios.$get('CadastroEsportes');
       esportes = response;
       totalRows = esportes.length;
+      for (let i=0;i<totalRows;i++) {
+          esportesNome[i] = esportes.nome[i];
+      }
+      alert(esportesNome);
     } catch (ex) {
       console.log(ex);
     }
-    return { esportes, totalRows }
+    return { esportesNome }
     },
-    
+
     name: "CadastroEvento",
     data: function () {
         return {
