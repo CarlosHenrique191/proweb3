@@ -5,6 +5,7 @@ const CadastroEsportesRotas = require("./src/api/routes/CadastroEsportes");
 const CadastroEventoRotas = require("./src/api/routes/CadastroEvento");
 const CalendarioRotas = require("./src/api/routes/Calendario");
 const CadastroTecnicoRotas = require("./src/api/routes/CadastroTecnico");
+const CadastroJogadorRotas = require("./src/api/routes/CadastroJogador");
 const CadastroTimeRotas = require("./src/api/routes/CadastroTime");
 const app = express();
 
@@ -21,6 +22,8 @@ const app = express();
     app.use("/api", CalendarioRotas);
 
     app.use("/api", CadastroTecnicoRotas);
+    
+    app.use("/api", CadastroJogadorRotas);
 
     app.use("/api", CadastroTimeRotas);
 
