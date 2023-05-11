@@ -8,10 +8,10 @@
                     <b-form-select v-model="novoEvento.esporte" :options="esporte" size="sm" class="mt-3"></b-form-select>
                 </b-form-group>
                 <br><h4><em>Dados do evento</em></h4>
-                <b-form-group label="Time A:" label-for="nome-input" label-cols-sm="2" label-align-sm="left">
+                <b-form-group label="Time A:" label-for="timeA-input" label-cols-sm="2" label-align-sm="left">
                     <b-form-select v-model="novoEvento.timeA" :options="time" size="sm" class="mt-3"></b-form-select>
                 </b-form-group>
-                <b-form-group label="Time B:" label-for="nome-input" label-cols-sm="2" label-align-sm="left">
+                <b-form-group label="Time B:" label-for="timeB-input" label-cols-sm="2" label-align-sm="left">
                     <b-form-select v-model="novoEvento.timeB" :options="time" size="sm" class="mt-3"></b-form-select>
                 </b-form-group>
                 <b-form-group label="Data:" label-for="data-input" label-cols-sm="2" label-align-sm="left">
@@ -27,7 +27,7 @@
                     <b-form-select v-model="novoEvento.arbitragem" :options="arbitragem" size="sm" class="mt-3"></b-form-select>
                 </b-form-group>
                 <b-form-group label="Imprensa:" label-for="imprensa-input" label-cols-sm="2" label-align-sm="left">
-                    <b-form-select v-model="novoEvento.imprensa" :options="local" size="sm" class="mt-3"></b-form-select>
+                    <b-form-select v-model="novoEvento.imprensa" :options="imprensa" size="sm" class="mt-3"></b-form-select>
                 </b-form-group>
                 <b-button type="submit">Cadastrar</b-button>
             </b-form>
@@ -81,7 +81,7 @@ export default {
                 .catch((error) => {
                     console.error('Não foi possível criar um novo evento');
                     console.log(error);
-                    this.$bvModal.hide('modal-novo-esporte');
+                    this.$bvModal.hide('modal-novo-evento');
                     this.show = false;
                 });
         },

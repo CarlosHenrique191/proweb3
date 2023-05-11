@@ -15,7 +15,7 @@ module.exports = {
     postNewCadastroEsportes: async function (esporte){
         const data = await CadastroEsportes.create(esporte);
         //colocar no banco
-        if(data) return {status: "esporte cadastrado com sucesso."}
+        if(data) return {status: "Esporte cadastrado com sucesso."}
         else return {status: "Não foi possível cadastrar o esporte"}
     },
     

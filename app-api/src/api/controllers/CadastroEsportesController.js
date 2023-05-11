@@ -4,10 +4,10 @@ module.exports = {
     //Pegar todas as infomaçoes
     listAll: function (req, res) {
         //Blocking operation (Não fazer)
-        //return ItemPatrimonioRepository.all()
-        // console.log(ItemPatrimonioRepository.all());
+        //return CadastroEsportesRepository.all()
+        // console.log(CadastroEsportesRepository.all());
         res.statusCode = 200; // Status HTTP para OK;
-        ItemPatrimonioService.getAllCadastroEsportes().then(
+        CadastroEsportesService.getAllCadastroEsportes().then(
             esportes => {
                 res.set("Content-Type", "application/json");
                 res.send(JSON.stringify(esportes));

@@ -1,9 +1,22 @@
-const CadastroEventoService = require("../services/CadastroEventoService");
+const CadastroTecnicoService = require("../services/CadastroTecnicoService");
 
 module.exports = {
+    //Pegar todas as infomaçoes
+    listAll: function (req, res) {
+        //Blocking operation (Não fazer)
+        //return CadastroTecnicoRepository.all()
+        // console.log(CadastroTecnicoRepository.all());
+        res.statusCode = 200; // Status HTTP para OK;
+        CadastroTecnicoService.getAllCadastroTecnico().then(
+            tecnico => {
+                res.set("Content-Type", "application/json");
+                res.send(JSON.stringify(tecnico));
+            }            
+        )
+    },
     // Adicionar Esporte
     post: function (req, res) {
-        CadastroEventoService.postNewCadastroEvento(
+        CadastroTecnicoService.postNewCadastroTecnico(
             req.body
         ).then((status) => {
             res.statusCode = 201; // Status HTTP para created;
@@ -18,26 +31,26 @@ module.exports = {
     },
     // Usado para listar
     get: function (req, res) {
-        const CadastroEventoId = req.params.CadastroEvento_id;
-        CadastroEventoService.getCadastroEventoPorId(
+        const CadastroTecnicoNome = req.params.CadastroTecnico_nome;
+        CadastroTecnicoService.getCadastroTecnicoPorNome(
             // req.params acessa os parâmetros passados na path definidos como :nomeparam
-            CadastroEventoId).then((evento) => {
-                if(evento){
+            CadastroTecnicoNome).then((tecnico) => {
+                if(tecnico){
                     res.statusCode = 200; // Status HTTP para OK;
                     res.set("Content-Type", "application/json");
-                    res.send(JSON.stringify(evento));                    
+                    res.send(JSON.stringify(tecnico));                    
                 } else{
                     res.statusCode = 404; // Status HTTP para No Found;
                     res.set("Content-Type", "application/json");
-                    res.send({status: `Não foi possível encontrar esse evento ${CadastroEventoId}.`});
+                    res.send({status: `Não foi possível encontrar esse tecnico ${CadastroTecnicoNome}.`});
                 }                
             });
     },
     //Remove esporte
     delete: function (req, res) {
-        CadastroEventoService.deleteCadastroEventoPorId(
+        CadastroTecnicoService.deleteCadastroTecnicoPorNome(
             // req.params acessa os parâmetros passados na path definidos como :nomeparam no router
-            req.params.CadastroEsportesId).then((status) => {
+            req.params.CadastroTecnicoNome).then((status) => {
                 res.statusCode = 200; // Status HTTP para Operação bem sucedida "No content";
                 res.set("Content-Type", "application/json");
                 res.send(JSON.stringify(status));

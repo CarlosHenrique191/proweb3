@@ -1,9 +1,22 @@
-const CadastroEventoService = require("../services/CadastroEventoService");
+const CadastroTimeService = require("../services/CadastroTimeService");
 
 module.exports = {
+    //Pegar todas as infomaçoes
+    listAll: function (req, res) {
+        //Blocking operation (Não fazer)
+        //return CadastroTimeRepository.all()
+        // console.log(CadastroTimeRepository.all());
+        res.statusCode = 200; // Status HTTP para OK;
+        CadastroTimeService.getAllCadastroTime().then(
+            time => {
+                res.set("Content-Type", "application/json");
+                res.send(JSON.stringify(time));
+            }            
+        )
+    },
     // Adicionar Esporte
     post: function (req, res) {
-        CadastroEventoService.postNewCadastroEvento(
+        CadastroTimeService.postNewCadastroTime(
             req.body
         ).then((status) => {
             res.statusCode = 201; // Status HTTP para created;
@@ -18,26 +31,26 @@ module.exports = {
     },
     // Usado para listar
     get: function (req, res) {
-        const CadastroEventoId = req.params.CadastroEvento_id;
-        CadastroEventoService.getCadastroEventoPorId(
+        const CadastroTimeNome = req.params.CadastroTime_nome;
+        CadastroTimeService.getCadastroTimePorNome(
             // req.params acessa os parâmetros passados na path definidos como :nomeparam
-            CadastroEventoId).then((evento) => {
-                if(evento){
+            CadastroTimeNome).then((time) => {
+                if(time){
                     res.statusCode = 200; // Status HTTP para OK;
                     res.set("Content-Type", "application/json");
-                    res.send(JSON.stringify(evento));                    
+                    res.send(JSON.stringify(time));                    
                 } else{
                     res.statusCode = 404; // Status HTTP para No Found;
                     res.set("Content-Type", "application/json");
-                    res.send({status: `Não foi possível encontrar esse evento ${CadastroEventoId}.`});
+                    res.send({status: `Não foi possível encontrar esse time ${CadastroTimeNome}.`});
                 }                
             });
     },
     //Remove esporte
     delete: function (req, res) {
-        CadastroEventoService.deleteCadastroEventoPorId(
+        CadastroTimeService.deleteCadastroTimePorNome(
             // req.params acessa os parâmetros passados na path definidos como :nomeparam no router
-            req.params.CadastroEsportesId).then((status) => {
+            req.params.CadastroTimeNome).then((status) => {
                 res.statusCode = 200; // Status HTTP para Operação bem sucedida "No content";
                 res.set("Content-Type", "application/json");
                 res.send(JSON.stringify(status));

@@ -4,8 +4,8 @@ const CadastroEventoController = require("../controllers/CadastroEventoControlle
 
 const routes = Router();
 
-routes.get("/CadastroEvento/:CadastroEvento_nome", CadastroEventoController.get);
+routes.get("/CadastroEvento/:CadastroEvento_id", CadastroEventoController.get);
 routes.post("/CadastroEvento", CadastroEventoController.post);
-routes.delete("/CadastroEvento/:CadastroEvento_nome", CadastroEventoController.delete);
+routes.delete("/CadastroEvento/:CadastroEvento_id", CadastroEventoController.delete);
 
 module.exports = routes;

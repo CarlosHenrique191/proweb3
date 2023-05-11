@@ -4,11 +4,13 @@
             <b-collapse id="nav-collapse" is-nav>
                 <b-navbar-nav >
                     <b-nav-item href="/Home"><img src="../static/Logo.png" /></b-nav-item>
-                    <b-nav-item href="/CadastroEsportes">Cadastrar Esportes</b-nav-item>
-                    <b-nav-item href="/CadastroLocais">Registrar Local</b-nav-item>
+                    <b-nav-item href="/CadastroEsportes">Esportes</b-nav-item>
+                    <b-nav-item href="/CadastroLocais">Local</b-nav-item>
                     <!-- <b-nav-item href="/CadastroEventos">Registrar Evento</b-nav-item> -->
-                    <b-nav-item href="/CadastroEventosOld">Registrar Evento</b-nav-item>
+                    <b-nav-item href="/CadastroEventosOld">Evento</b-nav-item>
                     <b-nav-item href="/Calendario">Calendario</b-nav-item>
+                    <b-nav-item href="/CadastroTecnico">Tecnico</b-nav-item>
+                    <b-nav-item href="/CadastroTime">Time</b-nav-item>
                     
                     
                     <!-- Navbar dropdowns 
