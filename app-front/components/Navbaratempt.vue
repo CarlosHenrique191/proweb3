@@ -11,6 +11,7 @@
                     <b-nav-item href="/Calendario">Calendario</b-nav-item>
                     <b-nav-item href="/CadastroTecnico">Tecnico</b-nav-item>
                     <b-nav-item href="/CadastroTime">Time</b-nav-item>
+                    <b-nav-item href="/CadastroJogador">Jogador</b-nav-item>
                     
                     
                     <!-- Navbar dropdowns 

@@ -5,7 +5,7 @@
                 <h1><em>Cadastro de Tecnico</em></h1><br>
                 <h4><em>Selecione um esporte</em></h4>
                 <b-form-group label="Esporte:" label-for="esporte-input" label-cols-sm="2" label-align-sm="left">
-                    <b-form-select v-model="novoTecnico.esporte" :options="esporte" size="sm" class="mt-3"></b-form-select>
+                    <b-form-select v-model="novoTecnico.esporte" :options="esportesNome" size="sm" class="mt-3"></b-form-select>
                 </b-form-group>
                 <br><h4><em>Dados pessoais</em></h4>
                 <b-form-group label="Nome:" label-for="nome-input" label-cols-sm="2" label-align-sm="left">
@@ -27,22 +27,27 @@
 export default {
 
     async asyncData({ $axios }) {
-    let esportes, totalRows;
-    try {
-      const response = await $axios.$get('CadastroEsportes');
-      esportes = response;
-      totalRows = esportes.length;
-    } catch (ex) {
-      console.log(ex);
-    }
-    return { esportes, totalRows }
+        let esportes, totalRows, esportesNome = [
+            { value: null, text: 'Por favor escolha um esporte' },
+        ];
+        try {
+        const response = await $axios.$get('CadastroEsportes');
+        esportes = response;
+        response.forEach(element => {
+            esportesNome.push(element["nome"]);
+        });
+
+        } catch (ex) {
+            console.log(ex);
+        }
+        console.log(esportesNome);
+        return { esportesNome };
     },
-    
     name: "CadastroTecnico",
     data: function () {
         return {
             novoTecnico: {
-                esporte: "",
+                esporte: null,
                 nome: "",
                 telefone: "",
                 email: ""

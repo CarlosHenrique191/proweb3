@@ -15,10 +15,10 @@
                     <b-form-select v-model="novoEvento.timeB" :options="time" size="sm" class="mt-3"></b-form-select>
                 </b-form-group>
                 <b-form-group label="Data:" label-for="data-input" label-cols-sm="2" label-align-sm="left">
-                    <b-form-input v-model="novoEvento.data" id="data-input" :type="date"></b-form-input>
+                    <b-form-datepicker v-model="novoEvento.data" id="data-input"></b-form-datepicker>
                 </b-form-group>
                 <b-form-group label="Hora:" label-for="hora-input" label-cols-sm="2" label-align-sm="left">
-                    <b-form-input v-model="novoEvento.hora" id="hora-input" :type="time"></b-form-input>
+                    <b-form-timepicker v-model="novoEvento.hora" id="hora-input"></b-form-timepicker>
                 </b-form-group>
                 <b-form-group label="Local:" label-for="local-input" label-cols-sm="2" label-align-sm="left">
                     <b-form-select v-model="novoEvento.local" :options="local" size="sm" class="mt-3"></b-form-select>
@@ -39,26 +39,41 @@
 export default {
 
     async asyncData({ $axios }) {
-    let esportes, totalRows, esportesNome = [];
-    try {
-      const response = await $axios.$get('CadastroEsportes');
-      esportes = response;
-      totalRows = esportes.length;
-      for (let i=0;i<totalRows;i++) {
-          esportesNome[i] = esportes.nome[i];
-      }
-      alert(esportesNome);
-    } catch (ex) {
-      console.log(ex);
-    }
-    return { esportesNome }
+        let esportesNome = [
+            { value: null, text: 'Por favor escolha um esporte' },
+        ];
+        try {
+        const response = await $axios.$get('CadastroEsportes');
+        // totalRows = esportes.length;
+        // for (let i=0;i<totalRows;i++) {
+        //     esportesNome[i] = esportes.nome[i];
+        // }
+        
+        //response.forEach((element, index) => {
+        //    esportesNome.push(
+        //        {
+        //            value: index,
+        //            text: element["nome"]
+        //        });
+        //});
+
+        response.forEach(element => {
+            esportesNome.push(element["nome"]);
+        });
+
+        } catch (ex) {
+            console.log(ex);
+        }
+        console.log(esportesNome);
+        return { esportesNome };
+        // return { esportes }
     },
 
     name: "CadastroEvento",
     data: function () {
         return {
             novoEvento: {
-                esporte: "",
+                esporte: null,
                 timeA: "",
                 timeB: "",
                 data: "",
@@ -69,6 +84,13 @@ export default {
             },
             //exemploLocal: [{text: 'Selecione um local', value: null}, 'Praia','São lourenço','Bragantino','Lago']
         };
+    },
+    computed:{
+        optionsSports(){
+            return [
+
+            ]
+        }
     },
     methods: {
         NovoEvento: function (event) {

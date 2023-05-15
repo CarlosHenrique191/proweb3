@@ -5,11 +5,11 @@
                 <h1><em>Cadastro de Jogador</em></h1><br>
                 <h4><em>Selecione um esporte</em></h4>
                 <b-form-group label="Esporte:" label-for="esporte-input" label-cols-sm="2" label-align-sm="left">
-                    <b-form-select v-model="novoJogador.esporte" :options="esporte" size="sm" class="mt-3"></b-form-select>
+                    <b-form-select v-model="novoJogador.esporte" :options="esportesNome" size="sm" class="mt-3"></b-form-select>
                 </b-form-group>
                 <h4><em>Selecione um time</em></h4>
                 <b-form-group label="Time:" label-for="time-input" label-cols-sm="2" label-align-sm="left">
-                    <b-form-select v-model="novoJogador.time" :options="time" size="sm" class="mt-3"></b-form-select>
+                    <b-form-select v-model="novoJogador.time" :options="timeNome" size="sm" class="mt-3"></b-form-select>
                 </b-form-group>
                 <br><h4><em>Dados pessoais</em></h4>
                 <b-form-group label="Nome:" label-for="nome-input" label-cols-sm="2" label-align-sm="left">
@@ -31,15 +31,25 @@
 export default {
 
     async asyncData({ $axios }) {
-    let esportes, totalRows;
-    try {
-      const response = await $axios.$get('CadastroEsportes');
-      esportes = response;
-      totalRows = esportes.length;
-    } catch (ex) {
-      console.log(ex);
-    }
-    return { esportes, totalRows }
+        let esportesNome = [
+            { value: null, text: 'Por favor escolha um esporte' },
+        ];
+        let timeNome = [
+            { value: null, text: 'Por favor escolha um time' },
+        ];
+        try {
+        const response = await $axios.$get('CadastroEsportes');
+        response.forEach(element => {
+            esportesNome.push(element["nome"]);
+        });
+        const TimeResponse = await $axios.$get('CadastroTime');
+        TimeResponse.forEach(element => {
+            timeNome.push(element["nome"]);
+        });
+        } catch (ex) {
+            console.log(ex);
+        }
+        return { esportesNome,timeNome };
     },
     
     name: "CadastroJogador",
@@ -47,8 +57,8 @@ export default {
         return {
             novoJogador: {
                 nome: "",
-                esporte: "",
-                time: "",
+                esporte: null,
+                time: null,
                 telefone: "",
                 email: ""
             },
