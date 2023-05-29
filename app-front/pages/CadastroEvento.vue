@@ -8,11 +8,8 @@
                     <b-form-select v-model="novoEvento.esporte" :options="esportesNome" size="sm" class="mt-3"></b-form-select>
                 </b-form-group>
                 <br><h4><em>Dados do evento</em></h4>
-                <b-form-group label="Time A:" label-for="timeA-input" label-cols-sm="2" label-align-sm="left">
-                    <b-form-select v-model="novoEvento.timeA" :options="time" size="sm" class="mt-3"></b-form-select>
-                </b-form-group>
-                <b-form-group label="Time B:" label-for="timeB-input" label-cols-sm="2" label-align-sm="left">
-                    <b-form-select v-model="novoEvento.timeB" :options="time" size="sm" class="mt-3"></b-form-select>
+                <b-form-group label="Nome:" label-for="nome-input" label-cols-sm="2" label-align-sm="left">
+                    <b-form-input v-model="novoEvento.nome" id="nome-input"></b-form-input>
                 </b-form-group>
                 <b-form-group label="Data:" label-for="data-input" label-cols-sm="2" label-align-sm="left">
                     <b-form-datepicker v-model="novoEvento.data" id="data-input"></b-form-datepicker>
@@ -22,12 +19,6 @@
                 </b-form-group>
                 <b-form-group label="Local:" label-for="local-input" label-cols-sm="2" label-align-sm="left">
                     <b-form-select v-model="novoEvento.local" :options="local" size="sm" class="mt-3"></b-form-select>
-                </b-form-group>
-                <b-form-group label="Arbitragem:" label-for="arbitragem-input" label-cols-sm="2" label-align-sm="left">
-                    <b-form-select v-model="novoEvento.arbitragem" :options="arbitragem" size="sm" class="mt-3"></b-form-select>
-                </b-form-group>
-                <b-form-group label="Imprensa:" label-for="imprensa-input" label-cols-sm="2" label-align-sm="left">
-                    <b-form-select v-model="novoEvento.imprensa" :options="imprensa" size="sm" class="mt-3"></b-form-select>
                 </b-form-group>
                 <b-button type="submit">Cadastrar</b-button>
             </b-form>
@@ -56,7 +47,6 @@ export default {
         //            text: element["nome"]
         //        });
         //});
-
         response.forEach(element => {
             esportesNome.push(element["nome"]);
         });
@@ -74,13 +64,10 @@ export default {
         return {
             novoEvento: {
                 esporte: null,
-                timeA: "",
-                timeB: "",
+                nome: "",
                 data: "",
                 hora: "",
-                local: "",
-                arbitragem: "",
-                imprensa: ""
+                local: ""
             },
             //exemploLocal: [{text: 'Selecione um local', value: null}, 'Praia','São lourenço','Bragantino','Lago']
         };

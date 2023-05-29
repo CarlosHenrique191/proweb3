@@ -5,6 +5,8 @@
                 <b-nav-item href="/Home"><img src="../static/Logo.png" /></b-nav-item>
                 <b-nav-item href="/CadastroEsportes">Cadastrar Esportes</b-nav-item>
                 <b-nav-item href="/CadastroLocais">Registrar Local</b-nav-item>
+                <b-nav-item href="/CadastroTime">Registrar Time</b-nav-item>
+                <b-nav-item href="/CadastroPartidas">Registrar Partida</b-nav-item>
                 
                 <b-nav-item href="/Login">Login</b-nav-item>
                 <b-nav-item href="/Registrar">Registrar-se</b-nav-item>

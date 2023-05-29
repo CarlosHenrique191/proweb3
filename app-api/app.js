@@ -7,6 +7,7 @@ const CalendarioRotas = require("./src/api/routes/Calendario");
 const CadastroTecnicoRotas = require("./src/api/routes/CadastroTecnico");
 const CadastroJogadorRotas = require("./src/api/routes/CadastroJogador");
 const CadastroTimeRotas = require("./src/api/routes/CadastroTime");
+const CadastroPartidaRotas = require("./src/api/routes/CadastroPartida");
 const app = express();
 
     //Configuração dos middlewares
@@ -26,6 +27,8 @@ const app = express();
     app.use("/api", CadastroJogadorRotas);
 
     app.use("/api", CadastroTimeRotas);
+
+    app.use("/api", CadastroPartidaRotas);
 
     /*app.get("/", (req, res) =>{
         res.send("Express server");

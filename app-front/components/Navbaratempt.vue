@@ -7,11 +7,12 @@
                     <b-nav-item href="/CadastroEsportes">Esportes</b-nav-item>
                     <b-nav-item href="/CadastroLocais">Local</b-nav-item>
                     <!-- <b-nav-item href="/CadastroEventos">Registrar Evento</b-nav-item> -->
-                    <b-nav-item href="/CadastroEventosOld">Evento</b-nav-item>
+                    <b-nav-item href="/CadastroEvento">Evento</b-nav-item>
                     <b-nav-item href="/Calendario">Calendario</b-nav-item>
                     <b-nav-item href="/CadastroTecnico">Tecnico</b-nav-item>
                     <b-nav-item href="/CadastroTime">Time</b-nav-item>
                     <b-nav-item href="/CadastroJogador">Jogador</b-nav-item>
+                    <b-nav-item href="/CadastroPartida">Partida</b-nav-item>
                     
                     
                     <!-- Navbar dropdowns 

@@ -1,7 +1,7 @@
 const CalendarioService = require("../services/CalendarioService");
 
 module.exports = {
-    // Adicionar Esporte
+    // Adicionar Calendario
     post: function (req, res) {
         CalendarioService.postNewCalendario(
             req.body
@@ -33,7 +33,7 @@ module.exports = {
                 }                
             });
     },
-    //Remove esporte
+    //Remove calendario
     delete: function (req, res) {
         CalendarioService.deleteCalendarioPorData(
             // req.params acessa os parâmetros passados na path definidos como :nomeparam no router

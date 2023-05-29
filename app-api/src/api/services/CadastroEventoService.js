@@ -2,8 +2,13 @@
 const {CadastroEvento} = require("../../database/models");
 
 module.exports = {
-    getCadastroEventoPorId: async function (CadastroEventoId){
-        const data = await CadastroEvento.findOne({ where: { id: CadastroEventoId }})
+    getAllCadastroEvento: async function (){
+        const data = await CadastroEvento.findAll();
+        return data;
+    },
+
+    getCadastroEventoPorNome: async function (CadastroEventoNome){
+        const data = await CadastroEvento.findOne({ where: { nome: CadastroEventoNome }})
         return data;
     },
 
@@ -14,8 +19,8 @@ module.exports = {
         else return {status: "Não foi possível cadastrar um evento"}
     },
     
-    deleteCadastroEventoPorId: async function(CadastroEventoId) {
-        const status = await CadastroEvento.destroy(CadastroEventoId);
+    deleteCadastroEventoPorNome: async function(CadastroEventoNome) {
+        const status = await CadastroEvento.destroy(CadastroEventoNome);
         if(status) return {status: "Evento removido com sucesso."}
         else return {status: "Evento não encontrado."}
     }

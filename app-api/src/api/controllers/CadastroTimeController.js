@@ -14,7 +14,7 @@ module.exports = {
             }            
         )
     },
-    // Adicionar Esporte
+    // Adicionar Time
     post: function (req, res) {
         CadastroTimeService.postNewCadastroTime(
             req.body
@@ -46,7 +46,7 @@ module.exports = {
                 }                
             });
     },
-    //Remove esporte
+    //Remove time
     delete: function (req, res) {
         CadastroTimeService.deleteCadastroTimePorNome(
             // req.params acessa os parâmetros passados na path definidos como :nomeparam no router

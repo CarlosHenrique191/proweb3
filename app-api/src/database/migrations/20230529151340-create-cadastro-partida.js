@@ -2,15 +2,20 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('CadastroEvento', {
+    await queryInterface.createTable('CadastroPartida', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      esporte: {
-        type: Sequelize.STRING
+      eventoNome: {
+          type: Sequelize.STRING,
+          references: {
+            model: 'CadastroEvento',
+            key: 'nome',
+            as: 'eventoNome',
+          }
       },
       timeA: {
         type: Sequelize.STRING
@@ -18,24 +23,15 @@ module.exports = {
       timeB: {
         type: Sequelize.STRING
       },
-      data: {
-        type: Sequelize.DATE
-      },
-      hora: {
-        type: Sequelize.TIME
-      },
-      local: {
+      tecnicoA: {
         type: Sequelize.STRING
       },
-      arbitragem: {
-        type: Sequelize.STRING
-      },
-      imprensa: {
+      tecnicoB: {
         type: Sequelize.STRING
       },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('CadastroEvento');
+    await queryInterface.dropTable('CadastroPartida');
   }
 };

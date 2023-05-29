@@ -10,18 +10,20 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      CadastroEvento.hasMany(models.CadastroPartida);
     }
   }
   CadastroEvento.init({
+    nome: {
+      allowNull: false,
+      autoIncrement: false,
+      primaryKey: true,
+      type: DataTypes.STRING
+    },
     esporte: DataTypes.STRING,
-    timeA: DataTypes.STRING,
-    timeB: DataTypes.STRING,
     data: DataTypes.DATE,
     hora: DataTypes.TIME,
     local: DataTypes.STRING,
-    arbitragem: DataTypes.STRING,
-    imprensa: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'CadastroEvento',

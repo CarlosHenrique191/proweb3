@@ -14,7 +14,7 @@ module.exports = {
             }            
         )
     },
-    // Adicionar Esporte
+    // Adicionar Tecnico
     post: function (req, res) {
         CadastroTecnicoService.postNewCadastroTecnico(
             req.body
@@ -46,7 +46,7 @@ module.exports = {
                 }                
             });
     },
-    //Remove esporte
+    //Remove tecnico
     delete: function (req, res) {
         CadastroTecnicoService.deleteCadastroTecnicoPorNome(
             // req.params acessa os parâmetros passados na path definidos como :nomeparam no router
