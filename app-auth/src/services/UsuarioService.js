@@ -1,14 +1,14 @@
 require('dotenv').config();
 // This will help us connect to the database
-const dbo = require('../db/conn');
+const dbo = require('../database/conn');
 const {ObjectId} = require("mongodb");
 const collName = 'usuarios';
 
 module.exports = {
-    async create(matchUser, callbackAtlasResponse) {
-        const dbConnect = dbo.getDb();
+    async criar(matchUser, callbackAtlasResponse) {
+        const databaseConnect = dbo.getDatabase();
 
-        await dbConnect
+        await databaseConnect
             .collection(collName)
             .insertOne(matchUser, callbackAtlasResponse);
     },
@@ -22,8 +22,8 @@ module.exports = {
     },
 
     async getUsuarioPorId(usuarioId){
-        const dbConnect = dbo.getDb();
-        return await dbConnect
+        const databaseConnect = dbo.getDatabase();
+        return await databaseConnect
             .collection(collName)
             .findOne(
                 {
@@ -35,9 +35,9 @@ module.exports = {
     },
 
     async getPorUsuarioNome(username) {
-        const dbConnect = dbo.getDb();
+        const databaseConnect = dbo.getDatabase();
 
-        return await dbConnect
+        return await databaseConnect
             .collection(collName)
             .findOne(
                 // {

@@ -55,7 +55,7 @@ export default {
         };
     },
 
-    methods:{
+    /*methods:{
         doLogin(){
             let dataLogin = {
                 user: this.login.user,
@@ -70,7 +70,27 @@ export default {
                 console.log(errors)
             });
         }
-    }
+        */
+       methods: {
+           doLogin: function (event) {
+                event.preventDefault();
+                console.log(JSON.stringify(this.login));
+                this.$axios
+                .$post("Login", this.login)
+                .then((response) => {
+                    console.log('Resposta do servidor obtida');
+                    this.$bvModal.hide('modal-novo-login');
+                    this.show = false;
+                    //this.updateItemList();
+                })
+                .catch((error) => {
+                    console.error('Não foi possível efetuar login');
+                        console.log(error);
+                        this.$bvModal.hide('modal-novo-login');
+                        this.show = false;
+                });
+            },
+        } 
 };
 </script>
 
