@@ -1,4 +1,4 @@
-FROM node:11.13.0-alpine
+FROM node:18.15.0-alpine
 
 # create destination directory
 RUN mkdir -p /usr/src/nuxt-app
@@ -16,7 +16,7 @@ RUN npm install
 # since it builds the server as well
 RUN npm run build
 
-# expose 5000 on container
+# expose 3000 on container
 EXPOSE 3000
 
 # set app serving to permissive / assigned
