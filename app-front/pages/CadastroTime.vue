@@ -73,8 +73,6 @@ export default {
                     this.show = false;
                 });
         },
-
-
     }
 }
 

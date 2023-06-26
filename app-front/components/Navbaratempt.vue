@@ -13,6 +13,10 @@
                     <b-nav-item href="/CadastroTime">Time</b-nav-item>
                     <b-nav-item href="/CadastroJogador">Jogador</b-nav-item>
                     <b-nav-item href="/CadastroPartida">Partida</b-nav-item>
+                    <b-nav-item href="/ListaPartidas">Lista Partidas</b-nav-item>
+                    <b-nav-item href="/ListaEventos">Lista Eventos</b-nav-item>
+                    <b-nav-item href="/CadastroResultado">Resultado</b-nav-item>
+                    <b-nav-item href="/CadastroEstatisticas">Estatisticas</b-nav-item>
                     
                     
                     <!-- Navbar dropdowns 

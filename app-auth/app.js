@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json()); // Converterá qualquer corpo em JSON em um objeto javascript
 
-app.use(UsuarioRotas);
+app.use("/api",UsuarioRotas);
 app.use(AuthRotas);
 
 //Exporta o aplicativo express configurado

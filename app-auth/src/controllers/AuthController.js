@@ -4,7 +4,7 @@ const utils = require("../utils/utils");
 module.exports = {
     async doLogin(req, res) {
         if (req.body.hasOwnProperty('username')) {
-            const usuarioLogin = await UsuarioService.getPorUsername(req.body.username);
+            const usuarioLogin = await UsuarioService.getPorUsuarioNome(req.body.username);
 
             if (usuarioLogin) {
                 console.log(usuarioLogin);

@@ -18,8 +18,6 @@
 </template>
 
 <script>
-//Login do Video 
-//Nao funcionou... eu acho..
 export default {
     name: "CadastroEsportes",
     data: function () {
