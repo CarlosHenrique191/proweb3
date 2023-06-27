@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   CadastroEstatisticas.init({
-    eventoNome: DataTypes.STRING,
+    CadastroEventoNome: DataTypes.STRING,
     partidaNome: {
       type: DataTypes.STRING,
       references: {

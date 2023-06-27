@@ -15,12 +15,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   CadastroResultado.init({
-    eventoNome: {
+    CadastroEventoNome: {
       type: DataTypes.STRING,
       references: {
         model: 'CadastroEvento',
         key: 'nome',
-        as: 'eventoNome',
+        as: 'CadastroEventoNome',
       }
     },
     timeA: DataTypes.STRING,

@@ -5,7 +5,7 @@
                 <h1><em>Resultado de partidas</em></h1><br>
                 <h4><em>Selecione um evento</em></h4>
                 <b-form-group label="Evento:" label-for="evento-input" label-cols-sm="2" label-align-sm="left">
-                    <b-form-select v-model="novoResultado.eventoNome" :options="evento" size="sm" class="mt-3"></b-form-select>
+                    <b-form-select v-model="novoResultado.CadastroEventoNome" :options="evento" size="sm" class="mt-3"></b-form-select>
                 </b-form-group>
                 <b-form-group label="Time A:" label-for="timeA-input" label-cols-sm="2" label-align-sm="left">
                     <b-form-select v-model="novoResultado.timeA" :options="time" size="sm" class="mt-3"></b-form-select>
@@ -56,7 +56,7 @@ export default {
     data: function () {
         return {
             novoResultado: {
-                eventoNome: null,
+                CadastroEventoNome: null,
                 timeA: null,
                 timeB: null,
                 timeAPontos: "",

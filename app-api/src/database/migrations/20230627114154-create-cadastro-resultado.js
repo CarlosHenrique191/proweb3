@@ -3,12 +3,12 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('CadastroResultado', {
-      eventoNome: {
+      CadastroEventoNome: {
         type: Sequelize.STRING,
         references: {
           model: 'CadastroEvento',
           key: 'nome',
-          as: 'eventoNome',
+          as: 'CadastroEventoNome',
         }
     },
       timeA: {

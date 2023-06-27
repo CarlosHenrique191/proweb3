@@ -5,10 +5,10 @@
                 <h1><em>Estatisticas da partidas</em></h1><br>
                 <h4><em>Selecione um evento</em></h4>
                 <b-form-group label="Evento:" label-for="evento-input" label-cols-sm="2" label-align-sm="left">
-                    <b-form-select v-model="novaEstatistica.eventoNome" :options="evento" size="sm" class="mt-3"></b-form-select>
+                    <b-form-select v-model="novaEstatistica.CadastroEventoNome" :options="evento" size="sm" class="mt-3"></b-form-select>
                 </b-form-group>
                 <b-form-group label="Partida:" label-for="partida-input" label-cols-sm="2" label-align-sm="left">
-                    <b-form-select v-model="novaEstatistica.partida" :options="partida" size="sm" class="mt-3"></b-form-select>
+                    <b-form-select v-model="novaEstatistica.partidaNome" :options="partida" size="sm" class="mt-3"></b-form-select>
                 </b-form-group>
                 <b-form-group label="Melhor Jogador:" label-for="melhorJogador-input" label-cols-sm="2" label-align-sm="left">
                     <b-form-input v-model="novaEstatistica.melhorJogador" id="melhorJogador-input"></b-form-input>
@@ -53,8 +53,8 @@ export default {
     data: function () {
         return {
             novaEstatistica: {
-                eventoNome: null,
-                partida: null,
+                CadastroEventoNome: null,
+                partidaNome: null,
                 melhorJogador: "",
                 quantidadePontos: "",
                 faltas: ""
@@ -69,7 +69,7 @@ export default {
                 .$post("CadastroEstatisticas", this.novaEstatistica)
                 .then((response) => {
                     console.log('Resposta do servidor obtida');
-                    this.$bvModal.hide('modal-novo-resultado');
+                    this.$bvModal.hide('modal-nova-estatistica');
                     this.show = false;
                     //this.updateItemList();
                 })

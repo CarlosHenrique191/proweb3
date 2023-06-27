@@ -9,6 +9,7 @@ const CadastroJogadorRotas = require("./src/api/routes/CadastroJogador");
 const CadastroTimeRotas = require("./src/api/routes/CadastroTime");
 const CadastroPartidaRotas = require("./src/api/routes/CadastroPartida");
 const CadastroResultadoRotas = require("./src/api/routes/CadastroResultado");
+const CadastroEstatisticasRotas = require("./src/api/routes/CadastroEstatisticas");
 const app = express();
 
     //Configuração dos middlewares
@@ -32,6 +33,8 @@ const app = express();
     app.use("/api", CadastroPartidaRotas);
     
     app.use("/api", CadastroResultadoRotas);
+
+    app.use("/api", CadastroEstatisticasRotas);
 
     /*app.get("/", (req, res) =>{
         res.send("Express server");
